@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Todo App</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<form method="POST" action="/update">
+    <label for="message">Edit task:</label>
+    <input type="hidden" name="id" value="<?php echo $id ?>">
+    <input type="text" id="message" name="message" value="<?= $message ?>">
+    <input type="submit" value="Save changes">
+</form>
+<a href="/">Go home</a>
+
+</body>
+</html>

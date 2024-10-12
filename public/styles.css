@@ -1,0 +1,24 @@
+/*body {*/
+/*    background-color: #e3e4d8;*/
+
+/*}*/
+
+/*.taskContainer {*/
+/*    display: flex;*/
+/*    justify-content: flex-start;  !* Aligns the items side by side *!*/
+/*    align-items: center;          !* Vertically center align *!*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*.task-container p {*/
+/*    margin: 0 10px 0 0;           !* Add space between text and button *!*/
+/*    font-size: 18px;*/
+/*}*/
+
+/*.task-container form {*/
+/*    display: inline-block;        !* Keep form inline *!*/
+/*}*/
+
+/*button {*/
+/*    cursor: pointer;              !* Show pointer on hover *!*/
+/*}*/

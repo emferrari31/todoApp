@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Todo App</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="css/output.css" rel="stylesheet">
+</head>
+<body class="m-28 mt-40 text-center  bg-gradient-to-r from-blue-500 to-pink-500">
+
+<h2 class="text-8xl font-mono">Completed tasks</h2> <br><br>
+
+<?php
+
+foreach ($results as $result) { ?>
+    <div>
+            <span class="text-3xl font-mono">
+                <?= $result['tasks'] ?>
+                <form style="display: inline;" method="POST" action="/delete/<?= $result['id'] ?>">
+                    <input class="border-emerald-950" type="submit" value="ⓧ">
+                </form>
+            </span>
+    </div>
+    <?php
+}
+?>
+<br><br>
+<a href="/" class="text-2xl border border-solid border-emerald-950 p-3">Go back</a>
+
+</body>
+</html>
