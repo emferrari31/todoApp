@@ -17,7 +17,7 @@ foreach ($results as $result) { ?>
             <span class="text-3xl font-mono">
                 <?= $result['tasks'] ?>
                 <form style="display: inline;" method="POST" action="/delete/<?= $result['id'] ?>">
-                    <input class="border-emerald-950" type="submit" value="ⓧ">
+                    <input class="border-emerald-950 cursor-pointer" type="submit" value="ⓧ">
                 </form>
             </span>
     </div>
@@ -25,7 +25,10 @@ foreach ($results as $result) { ?>
 }
 ?>
 <br><br>
-<a href="/" class="text-2xl border border-solid border-emerald-950 p-3">Go back</a>
+<a href="/" class="flex justify-center">
+    <img src="goBack.svg" alt="Go Back" style="width: auto; height: auto;">
+</a>
+<!--<a href="/" class="text-2xl border border-solid border-emerald-950 p-3">Go back</a>-->
 
 </body>
 </html>

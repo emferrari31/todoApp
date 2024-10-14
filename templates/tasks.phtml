@@ -9,14 +9,16 @@
     <link href="css/output.css" rel="stylesheet"> <!--tailwind-->
 </head>
 <body class="m-28 mt-80 text-center  bg-gradient-to-r from-teal-400 to-blue-500">
-<h1 class="text-8xl font-mono">On my to-do list...</h1>
+<span>
+<h1 class="text-8xl font-mono">On my to-do list...<span class="animate-pulse">|</span></h1>
+</span>
 <form method="POST" action="/add"><br><br>
     <label for="taskLabel"> </label>
     <input placeholder="Add your task here..." class="placeholder:italic appearance-none border rounded-2xl
             bg-green-950 py-5 px-16 p-8 text-white leading-tight focus:outline-none
             focus:shadow-outline text-xl font-mono mr-6" type="text" name="taskLabel" id="taskLabel">
-    <input class="bg-green-950 hover:bg-green-700 text-white font-bold py-4 px-7 rounded"
-           type="submit" value="Add"></form>
+    <input class="bg-green-950 hover:bg-green-700 text-white font-bold py-4 px-7 rounded cursor-pointer"
+           type="submit" value="Add"  required></form>
 <br> <br>
 <?php
 foreach ($tasks as $task) { ?>
@@ -26,7 +28,7 @@ foreach ($tasks as $task) { ?>
         <form style='display: inline-block' method='POST' action='/markDone/
              <?php echo isset($task['id']) ? $task['id'] : ''; ?>'>
     <input class="bg-transparent hover:bg-green-600 text-green-950 font-semibold text-xl hover:text-white
-             py-1 px-2 border border-blue-500 hover:border-transparent rounded" type='submit' value='✓'>
+             py-1 px-2 border border-blue-500 hover:border-transparent rounded cursor-pointer" type='submit' value='✓'>
       </form>
         </span>
     </div>
@@ -34,6 +36,9 @@ foreach ($tasks as $task) { ?>
 }
 ?>
 <br> <br>
-<a class="text-2xl border border-solid border-emerald-950 p-3" href="/completed">Show completed tasks</a>
+<a href="/completed" class="flex justify-center">
+    <img src="showCompleted3.svg" alt="Show Completed" style="width: auto; height: auto;">
+</a>
+<!--<a class="text-2xl border border-solid border-emerald-950 p-3" href="/completed">Show completed tasks</a>-->
 </body>
 </html>
