@@ -1,8 +1,7 @@
 .idea/
 .DS_Store
-/coverage/
-/vendor/
 /node_modules/
+/vendor/
 /logs/*
 !/logs/README.md
 *.log
@@ -13,6 +12,8 @@
 /dist/
 /build/
 /tests/
-/docs/
-/assets/
-/.vscode/
+/coverage/
+/src/tests/
+/src/*.test.php
+*.coverage
+/.git/
