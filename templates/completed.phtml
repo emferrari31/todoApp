@@ -17,7 +17,7 @@ foreach ($results as $result) { ?>
             <span class="text-3xl font-mono">
                 <?= $result['tasks'] ?>
                 <form style="display: inline;" method="POST" action="/delete/<?= $result['id'] ?>">
-                    <input class="border-emerald-950 cursor-pointer" type="submit" value="ⓧ">
+                    <input class="cursor-pointer font-bold" type="submit" value="X️">
                 </form>
             </span>
     </div>

@@ -18,9 +18,6 @@ class CompletedTasksController
     public function __invoke($request, $response)
     {
         $data = $this->model->getCompletedTasks();
-
-//        $this->model->add($task['taskLabel']);
-
         return $this->renderer->render($response, 'completed.phtml', ['results'=>$data]);
     }
 }

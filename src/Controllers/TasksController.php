@@ -17,10 +17,6 @@ class TasksController
     public function __invoke($request, $response)
     {
         $tasks = $this->model->getAllTasks();
-//        $tasks = [
-//            ['tasks' => 'Walk the dog.'],
-//            ['tasks' => 'Cook Dinner.'],
-//            ['tasks' => 'Type up notes.']];
         return $this->renderer->render($response, "tasks.phtml", ['tasks' => $tasks]);
     }
 }
