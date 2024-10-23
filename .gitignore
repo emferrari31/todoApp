@@ -5,3 +5,14 @@
 /node_modules/
 /logs/*
 !/logs/README.md
+*.log
+*.tmp
+*.cache
+.env
+.env.local
+/dist/
+/build/
+/tests/
+/docs/
+/assets/
+/.vscode/
