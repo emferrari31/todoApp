@@ -8,36 +8,51 @@
     <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
     <link href="css/output.css" rel="stylesheet"> <!--tailwind-->
 </head>
-<body class="m-28 mt-64 text-center  bg-gradient-to-r from-teal-400 to-blue-500">
-<span>
-<h1 class="text-8xl font-mono">On my to-do list...<span class="animate-pulse">|</span></h1>
-</span>
-<form method="POST" action="/add"><br><br>
-    <label for="taskLabel"></label>
-    <input placeholder="Add your task here..." class="placeholder:italic appearance-none border rounded-2xl
-            bg-green-950 py-5 px-16 p-8 text-white leading-tight focus:outline-none
-            focus:shadow-outline text-xl font-mono mr-6" type="text" name="taskLabel" id="taskLabel">
-    <input class="bg-green-950 hover:bg-green-700 text-white font-bold py-4 px-7 rounded cursor-pointer"
-           type="submit" value="Add" required></form>
-<br> <br>
-<?php
-foreach ($tasks as $task) { ?>
-    <div class="text-3xl font-mono">
-        <span> <i class='bx bx-chevrons-right'></i>
-    <?php echo $task['tasks']; ?>
-        <form style='display: inline-block' method='POST' action='/markDone/
-             <?php echo isset($task['id']) ? $task['id'] : ''; ?>'>
-    <input class="bg-transparent hover:bg-green-600 text-green-950 font-semibold text-3xl hover:text-white
-             py-1 px-3 border border-yellow-300 hover:border-transparent rounded cursor-pointer" type='submit' value='✓'>
-      </form>
-        </span>
-    </div>
-    <?php
-}
-?>
-<br> <br>
-<a href="/completed" class="flex justify-center">
-    <img src="showCompleted3.svg" alt="Show Completed" style="width: auto; height: auto;">
-</a>
+<body class="m-28 mt-20 text-center ">
+    <span>
+        <h1 class="text-3xl font-semibold">To Do List App</h1>
+    </span>
+    <!-- Task Input Form -->
+    <form method="POST" action="/add" class="mt-6">
+        <label for="taskLabel" class="sr-only">Add a task</label>
+        <input
+                placeholder="Add your task here..."
+                class="placeholder:italic appearance-none border bg-white py-2 px-8 text-black leading-tight focus:outline-none focus:shadow-outline text-l mr-4"
+                type="text" name="taskLabel" id="taskLabel" required
+        >
+        <input
+                class="cursor-pointer text-white py-2 px-4 bg-blue-500 hover:bg-sky-700 py-2 px-4 rounded-xl "
+                type="submit" value="Add"
+        >
+    </form>
+    <br> <br>
+    <!-- Task Table -->
+    <table class="min-w-full table-auto mt-4 border-separate border-spacing-2">
+        <thead>
+        <tr class="bg-gray-100">
+            <th class="px-6 py-3 border border-gray-300">Task</th>
+            <th class="px-6 py-3 border border-gray-300">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($tasks as $task) { ?>
+            <tr class="bg-white hover:bg-gray-50">
+                <td class="px-6 py-4 border border-gray-300"><?php echo $task['tasks']; ?></td>
+                <td class="px-6 py-4 border border-gray-300">
+                    <form style="display: inline-block" method="POST" action="/markDone/<?php echo isset($task['id']) ? $task['id'] : ''; ?>">
+                        <input
+                                class="bg-transparent hover:bg-green-600 text-green-950 font-semibold py-1 px-2 hover:text-white border border-yellow-300 hover:border-transparent rounded cursor-pointer"
+                                type="submit" value="✓">
+                    </form>
+                </td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+    <br> <br>
+    <!-- Link to Completed Tasks -->
+    <a href="/completed" class="flex justify-center mt-6">
+        <button class="bg-blue-500 hover:bg-sky-700 text-white py-2 px-4 rounded-xl">Go to Completed Tasks</button>
+    </a>
 </body>
 </html>

@@ -6,29 +6,39 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link href="css/output.css" rel="stylesheet">
 </head>
-<body class="m-28 mt-40 text-center  bg-gradient-to-r from-blue-500 to-pink-500">
-
-<h2 class="text-8xl font-mono">Completed tasks</h2> <br><br>
-
-<?php
-
-foreach ($results as $result) { ?>
-    <div>
-            <span class="text-3xl font-mono">
-                <?= $result['tasks'] ?>
-                <form style="display: inline;" method="POST" action="/delete/<?= $result['id'] ?>">
-                    <input class="cursor-pointer font-bold" type="submit" value="X️">
-                </form>
-            </span>
-    </div>
+<body class="m-28 mt-40 text-center">
+<span>
+    <h2 class="text-3xl font-semibold">Completed tasks</h2> <br><br>
+</span>
+<!-- Task Table -->
+<table class="min-w-full table-auto mt-8 border-separate border-spacing-2">
+    <thead>
+    <tr class="bg-gray-100">
+        <th class="px-6 py-3 border border-gray-300">Task</th>
+        <th class="px-6 py-3 border border-gray-300">Action</th>
+    </tr>
+    </thead>
+    <tbody>
     <?php
-}
-?>
+    foreach ($results as $result) { ?>
+        <tr class="bg-white hover:bg-gray-50">
+            <td class="px-6 py-4 border border-gray-300"><?= $result['tasks'] ?></td>
+            <td class="px-6 py-4 border border-gray-300">
+                <form style="display: inline;" method="POST" action="/delete/<?= $result['id'] ?>">
+                    <input
+                            class="cursor-pointer font-bold text-red-500 hover:text-white bg-transparent hover:bg-red-600 rounded-xl py-1 px-3 border border-red-500 hover:border-transparent"
+                            type="submit" value="X️">
+                </form>
+            </td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
 <br><br>
-<a href="/" class="flex justify-center">
-    <img src="goBack.svg" alt="Go Back" style="width: auto; height: auto;">
-</a>
-<!--<a href="/" class="text-2xl border border-solid border-emerald-950 p-3">Go back</a>-->
 
+<!-- Link to Go Back -->
+<a href="/" class="flex justify-center mt-6">
+    <button class="bg-blue-500 hover:bg-sky-700 text-white py-2 px-4 rounded-xl">Go Back</button>
+</a>
 </body>
 </html>
